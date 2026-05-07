@@ -2,6 +2,8 @@ import unittest
 import pandas as pd
 import re
 
+OUTPUT_DIR = 'data/output/OutputBasemodel.csv' # Adjust path before running
+
 def whitespace_remover(dataframe):
 
     # iterating over the columns
@@ -17,8 +19,7 @@ def whitespace_remover(dataframe):
             # if condn. is False then it will do nothing.
             pass
 
-csv_dir = "OutputBasemodel.csv"
-df=pd.read_csv('data/output/OutputBasemodel.csv', delimiter=";", skiprows= 2)
+df=pd.read_csv(OUTPUT_DIR, delimiter=";", skiprows= 2)
 whitespace_remover(df)
 df.columns = [col.strip() for col in df.columns]
 
